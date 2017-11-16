@@ -1,0 +1,172 @@
+﻿English
+;
+New game
+Send /join command to join
+;
+Failed to initiate a new game.
+;
+You have joined successfully.
+;
+Failed to join.
+;
+$(player) left the game.
+;
+Game started.
+;
+Failed to start game.
+;
+Please try again later.
+;
+Only one game can be hold in a group.
+;
+Only one game can be joined at the same time.
+;
+You have not 'pm' me.
+;
+You have joined redundantly.
+;
+Game room is full.
+;
+Game started.
+;
+There is no game.
+;
+There are not enough players.
+;
+The eldest hand goes to $(eldesthand). The minimun card, $(mincard), must be played.
+;
+The next eldest hand goes to $(eldesthand). The minimun card, $(mincard), must be played.
+;
+You have selected.
+;
+No selection
+;
+$(player): $(play) ...$(left)
+;
+Failed to play
+;
+$(player): PASS
+;
+Next player: $(nextplayer)
+;
+Vote to skip $(player). $(vote)/$(minvote).
+;
+$(player)
+$(hand)
+;
+$(player) was skipped.
+;
+Game was cancelled.
+;
+This game was stopped by group administrators.
+Players: $(players)
+;
+This bot was stopped.
+Last players: $(players)
+;
+play
+;
+pass
+;
+unselect all
+;
+vote
+;
+Winner is $(winner).
+,
+$(winner) won this game.
+;
+$(losers) lost.
+;
+You can use this function after $(remains) seconds.
+;
+About - $(version)
+To provide Big two game experience on Telegram. Please feel free to add me to any group chat and have fun.
+
+If me cannot provide a language you preferred, please contact the developer.
+
+Developer: @Ho_Yu
+;
+Game settings for $(group)
+;
+Gamerules
+;
+Languages
+;
+Save
+;
+Back
+;
+Gamerules
+;
+Hand size
+;
+Triple
+;
+Straights validation
+;
+Straights validation
+;
+Straights and Flushes comparation
+;
+Straights comparation
+;
+Flushes comparation
+;
+Ranking first
+;
+Suit first
+;
+Card first
+;
+allow
+;
+disallow
+;
+Hand size
+;
+Allow triples to be played?
+;
+Straight validation
+
+Current: $(sv)
+;
+config
+;
+Straight validation
+
+From ? to ?
+;
+straight validation
+
+From $(svcbegin) to ?
+;
+Straights and Flushes comparation
+;
+Flushes > straights
+;
+Straights > Flushed
+;
+Straights comparation
+
+Current: $(sc)
+;
+Furthur
+;
+Furthur straights comparation configuration
+
+$(scc)
+;
+Flushes comparation
+;
+Languages
+
+Current: $(language)
+;
+You are not a group administrator in $(group).
+;
+Save
+;
+'PM' me
+;
+Click here to 'pm' me.

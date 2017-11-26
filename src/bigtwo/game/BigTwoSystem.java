@@ -264,8 +264,8 @@ public class BigTwoSystem {
 			}
 			
 			game.previousPlayCard = playcard;
-			game.history.recordPlayCard(playcard);
 			play.getHand().removeSelectedHandcard();
+			game.history.recordPlayCard(playcard);
 			
 			
 			if(play.getHand().isEmpty()){
@@ -322,21 +322,21 @@ public class BigTwoSystem {
 		if(game.getStatus().isBeginning()){
 			result = PassResult.ACCEPT_ELDEST_HAND;
 			
-			play.getHand().removeSelectedHandcard();
+			play.getHand().unselectAll();
 			
 			game.history.recordPass(play);
 			game.nextEldestHand();
 		}else if(game.getFlagNewLeader()){
 			result = PassResult.ACCEPT_NEW_LEADER;
 			
-			play.getHand().removeSelectedHandcard();
+			play.getHand().unselectAll();
 			
 			game.history.recordPass(play);
 			game.nextPlayer();
 		}else{
 			result = PassResult.ACCEPT_NORMAL;
 			
-			play.getHand().removeSelectedHandcard();
+			play.getHand().unselectAll();
 			
 			game.history.recordPass(play);
 			game.nextPlayer();

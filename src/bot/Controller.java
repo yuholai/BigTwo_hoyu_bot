@@ -81,7 +81,6 @@ public class Controller{
 			}		
 		}
 		else if(cmd.equals(Constants.VIEW_HISTORY_CMD_NAME  )){
-			Player player = Player.getPlayer(msg.getFrom());
 			Group group = Group.getGroup(msg.getChat());
 			Game game = group.getGame();
 			if(game != null){

@@ -316,6 +316,26 @@ public class View {
 		strb.append(lang.playedCardAccept(strbsender.toString(), strbplaycard.toString(), nhandcards));
 	}
 	
+	private void appendPlayCardRecordTo(RecordEntry record, Lang lang, StringBuilder strb)
+	{
+		PlayCard playcard = record.playcard;
+		StringBuilder strbsender = new StringBuilder();
+		strbsender.append(textmention(playcard.sender.player));
+		
+		StringBuilder strbplaycard = new StringBuilder();
+		
+		strbplaycard
+		.append(cardtext(playcard.cardcomb.getCards()[0]));
+		for(int i=1; i<playcard.cardcomb.getCards().length; ++i)
+			strbplaycard.append(' ').append(cardtext(playcard.cardcomb.getCards()[i]));
+		
+		String nhandcards = new String();
+		if(record.nhandcard > 0)
+			nhandcards += record.nhandcard;
+		
+		strb.append(lang.playedCardAccept(strbsender.toString(), strbplaycard.toString(), nhandcards));
+	}
+	
 	private void appendResultTo(GameResult result, Game game, StringBuilder strb){
 		Lang lang = game.getSettings().getLang();
 		
@@ -489,7 +509,8 @@ public class View {
 				.append("\n\n")
 				.append(lang.gameStarted())
 				.toString()
-				);
+			)
+			.setChatId(join.group.getChatId());
 			break;
 		case REJECT_BUSY_USER:
 			lang = Lang.primaryLang;
@@ -499,7 +520,8 @@ public class View {
 				.append("\n\n")
 				.append(lang.busyUser())
 				.toString()
-				);
+				)
+			.setChatId(join.group.getChatId());
 			break;
 		case REJECT_GAME_FULL:
 			lang = Lang.primaryLang;
@@ -509,7 +531,8 @@ public class View {
 				.append("\n\n")
 				.append(lang.gameFull())
 				.toString()
-				);
+				)
+			.setChatId(join.group.getChatId());
 			break;
 		case REJECT_REDUNDANT:
 			lang = Lang.primaryLang;
@@ -519,7 +542,8 @@ public class View {
 				.append("\n\n")
 				.append(lang.joinRedundantly())
 				.toString()
-				);
+				)
+			.setChatId(join.group.getChatId());
 			break;
 		case FAILED_NO_GAME_IN_GROUP:
 		default:
@@ -530,7 +554,8 @@ public class View {
 				.append("\n\n")
 				.append(lang.noGameInGroup())
 				.toString()
-				);
+				)
+			.setChatId(join.group.getChatId());
 			break;
 		}
 		
@@ -1030,7 +1055,7 @@ public class View {
 		entries.forEach(entry->{
 			switch(entry.type){
 			case RecordEntry.PLAY_CARD:
-				appendPlayCardTo(entry.playcard, false, lang, strb);
+				appendPlayCardRecordTo(entry, lang, strb);
 				strb.append('\n');
 				break;
 			case RecordEntry.PASS     :
@@ -1051,6 +1076,13 @@ public class View {
 				break;
 			}
 		});
+		
+		bot.sendAsync(
+			new SendMessage()
+			.setChatId(game.getGroup().groupid)
+			.setText(strb.toString())
+			.setParseMode(ParseMode.HTML)
+		);
 	}
 	
 	public void displayListHand(Game game){
